@@ -1,25 +1,47 @@
 module.exports.and52 = function(v1, v2) {
-    let hi = 0x80000000;
-    let low = 0x7fffffff;
-    let hi1 = ~~(v1 / hi);
-    let hi2 = ~~(v2 / hi);
-    let low1 = v1 & low;
-    let low2 = v2 & low;
-    let h = hi1 & hi2;
-    let l = low1 & low2;
+    const hi = 0x80000000;
+    const low = 0x7fffffff;
+    const hi1 = ~~(v1 / hi);
+    const hi2 = ~~(v2 / hi);
+    const low1 = v1 & low;
+    const low2 = v2 & low;
+    const h = hi1 & hi2;
+    const l = low1 & low2;
     return h*hi + l;
 }
 
 module.exports.or52 = function(v1, v2) {
-    let hi = 0x80000000;
-    let low = 0x7fffffff;
-    let hi1 = ~~(v1 / hi);
-    let hi2 = ~~(v2 / hi);
-    let low1 = v1 & low;
-    let low2 = v2 & low;
-    let h = hi1 | hi2;
-    let l = low1 | low2;
+    const hi = 0x80000000;
+    const low = 0x7fffffff;
+    const hi1 = ~~(v1 / hi);
+    const hi2 = ~~(v2 / hi);
+    const low1 = v1 & low;
+    const low2 = v2 & low;
+    const h = hi1 | hi2;
+    const l = low1 | low2;
     return h*hi + l;
+}
+
+module.exports.xor52 = function(v1, v2) {
+    const hi = 0x80000000;
+    const low = 0x7fffffff;
+    const hi1 = ~~(v1 / hi);
+    const hi2 = ~~(v2 / hi);
+    const low1 = v1 & low;
+    const low2 = v2 & low;
+    const h = hi1 ^ hi2;
+    const l = low1 ^ low2;
+    return h*hi + l;
+}
+
+module.exports.not52 = function(v1) {
+	const hi = 0x80000000;
+	const low = 0x7fffffff;
+	const hi1 = ~~(v1 / hi);
+	const low1 = v1 & low;
+	const h = ~hi1;
+	const l = ~low1;
+	return h*hi + l;
 }
 
 module.exports.ls52 = function(num, bits) {
